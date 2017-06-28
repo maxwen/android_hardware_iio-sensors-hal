@@ -38,7 +38,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH) vendor/intel/hardware/iio-sensors
 ifeq ($(HAL_AUTODETECT),true)
 LOCAL_MODULE := iio-sensors-hal
 else
-LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := sensors.iio
 endif
 LOCAL_MODULE_OWNER := intel
 LOCAL_MODULE_RELATIVE_PATH := hw
@@ -51,7 +51,6 @@ LOCAL_LDFLAGS := -Wl,--gc-sections
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_PRELINK_MODULE := false
 LOCAL_SRC_FILES := $(src_files)
-LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -79,7 +78,7 @@ activity_src_files := $(src_path)/activity_event_entry.c \
 	              $(src_path)/utils.c \
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH) vendor/intel/hardware/iio-sensors
-LOCAL_MODULE := activity_recognition.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := activity_recognition.iio
 LOCAL_MODULE_OWNER := intel
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_TAGS := optional
@@ -88,7 +87,6 @@ LOCAL_LDFLAGS := -Wl,--gc-sections
 LOCAL_SHARED_LIBRARIES := liblog libcutils
 LOCAL_PRELINK_MODULE := false
 LOCAL_SRC_FILES := $(activity_src_files)
-LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
