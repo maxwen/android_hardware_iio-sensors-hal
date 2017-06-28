@@ -20,7 +20,6 @@
 #include <utils/Log.h>
 #include <hardware/sensors.h>
 #include <utils/Atomic.h>
-#include <linux/android_alarm.h>
 
 #include "common.h"
 #include "utils.h"
@@ -236,4 +235,3 @@ void set_timestamp (struct timespec *out, int64_t target_ns)
 	out->tv_sec  = target_ns / 1000000000LL;
 	out->tv_nsec = target_ns % 1000000000LL;
 }
-
