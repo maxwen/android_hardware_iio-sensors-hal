@@ -46,6 +46,9 @@ LOCAL_CFLAGS += -D__NO_EVENTS__
 endif
 LOCAL_LDFLAGS := -Wl,--gc-sections
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
+LOCAL_HEADER_LIBRARIES := libutils_headers
+LOCAL_C_INCLUDES += \
+    "hardware/libhardware/include"
 LOCAL_PRELINK_MODULE := false
 LOCAL_SRC_FILES := $(src_files)
 LOCAL_PROPRIETARY_MODULE := true

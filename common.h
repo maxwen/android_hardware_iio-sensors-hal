@@ -18,6 +18,8 @@
 #define __COMMON_H__
 
 #include <string.h>
+#include <time.h>
+#include <unistd.h>
 
 #define MAX_DEVICES	9	/* Check iio devices 0 to MAX_DEVICES-1 */
 #define MAX_SENSORS	12	/* We can handle as many sensors */
