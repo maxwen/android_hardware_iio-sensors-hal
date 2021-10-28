@@ -57,13 +57,15 @@ This is primarily done by reading and writing sysfs files located under
 
 SUPPORTED SENSOR TYPES
 
-As of march 2015 the following sensor types are supported:
+As of October 2021 the following sensor types are supported:
 
 - accelerometer
 - gyroscope
 - magnetometer
 - ambient light sensor
 - temperature sensor
+- pressure sensor
+- humidity sensor
 - proximity sensor
 - step detector
 - step counter

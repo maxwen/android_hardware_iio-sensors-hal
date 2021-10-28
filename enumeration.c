@@ -137,6 +137,26 @@ sensor_catalog_entry_t sensor_catalog[] = {
 		},
 	},
 	{
+		.tag		= "pressure",
+		.shorthand	= "",
+		.type		= SENSOR_TYPE_PRESSURE,
+		.num_channels	= 1,
+		.is_virtual	= 0,
+		.channel = {
+			{ DECLARE_GENERIC_CHANNEL("pressure") },
+		},
+	},
+	{
+		.tag		= "humidity",
+		.shorthand	= "",
+		.type		= SENSOR_TYPE_RELATIVE_HUMIDITY,
+		.num_channels	= 1,
+		.is_virtual	= 0,
+		.channel = {
+			{ DECLARE_GENERIC_CHANNEL("humidityrelative") },
+		},
+	},
+	{
 		.tag		= "proximity",
 		.shorthand	= "prox",
 		.type		= SENSOR_TYPE_PROXIMITY,

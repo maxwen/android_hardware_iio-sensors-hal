@@ -379,6 +379,8 @@ static int finalize_sample_default (int s, sensors_event_t* data)
 		case SENSOR_TYPE_LIGHT:
 		case SENSOR_TYPE_AMBIENT_TEMPERATURE:
 		case SENSOR_TYPE_TEMPERATURE:
+		case SENSOR_TYPE_PRESSURE:
+		case SENSOR_TYPE_RELATIVE_HUMIDITY:
 		case SENSOR_TYPE_INTERNAL_ILLUMINANCE:
 		case SENSOR_TYPE_INTERNAL_INTENSITY:
 			/* Only keep two decimals for these readings */
