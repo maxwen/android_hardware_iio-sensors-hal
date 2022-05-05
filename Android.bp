@@ -1,0 +1,110 @@
+// Copyright (c) 2015 Intel Corporation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// IIO sensors HAL module implementation, compiled as hw/iio-sensors-hal.so
+
+src_files = [
+    "entry.c",
+    "enumeration.c",
+    "control.c",
+    "description.c",
+    "utils.c",
+    "transform.c",
+    "compass-calibration.c",
+    "matrix-ops.c",
+    "gyro-calibration.c",
+    "filtering.c",
+    "discovery.c",
+    "accel-calibration.c",
+]
+
+cc_library_shared {
+    name: "sensors.iio",
+    owner: "intel",
+    relative_install_path: "hw",
+
+    cflags: [
+        "-DLOG_TAG=\"Sensors\"",
+        "-fvisibility=hidden",
+        "-Wno-missing-field-initializers",
+    ],
+
+    ldflags: ["-Wl,--gc-sections"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+    ],
+    header_libs: ["libutils_headers"],
+    include_dirs: ["hardware/libhardware/include"],
+
+    srcs: src_files,
+    vendor: true,
+}
+
+cc_binary {
+    name: "sens",
+    cflags: [
+        "-DLOG_TAG=\"Sensors\"",
+        "-fvisibility=hidden",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+    ],
+    srcs: ["sens.c"],
+    vendor: true,
+}
+
+activity_src_files = [
+    "activity_event_entry.c",
+    "discovery.c",
+    "utils.c",
+]
+
+cc_library_shared {
+
+    name: "activity_recognition.iio",
+    owner: "intel",
+    relative_install_path: "hw",
+
+    cflags: [
+        "-DLOG_TAG=\"Activity\"",
+        "-fvisibility=hidden",
+    ],
+    ldflags: ["-Wl,--gc-sections"],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+    ],
+
+    srcs: activity_src_files,
+    vendor: true,
+}
+
+cc_binary {
+    name: "activity",
+    cflags: [
+        "-DLOG_TAG=\"Activity\"",
+        "-fvisibility=hidden",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+    ],
+    srcs: ["activity.c"],
+    vendor: true,
+}
