@@ -518,6 +518,8 @@ int sensor_get_mounting_matrix (int s, float mm[9])
 	int dev_num = sensor[s].dev_num, err, i;
 	char mm_path[PATH_MAX], mm_buf[100];
 	char *tmp1 = mm_buf, *tmp2;
+	int j			= sensor[s].catalog_index;
+	const char *prefix	= sensor_catalog[j].tag;
 
 	switch (sensor[s].type) {
 		case SENSOR_TYPE_ACCELEROMETER:
@@ -529,7 +531,7 @@ int sensor_get_mounting_matrix (int s, float mm[9])
 			return 0;
 	}
 
-	sprintf(mm_path, MOUNTING_MATRIX_PATH, dev_num);
+	sprintf(mm_path, MOUNTING_MATRIX_PATH, dev_num, prefix);
 
 	err = sysfs_read_str(mm_path, mm_buf, sizeof(mm_buf));
 	if (err < 0)
