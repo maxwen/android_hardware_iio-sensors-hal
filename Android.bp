@@ -13,6 +13,8 @@
 // limitations under the License.
 
 // IIO sensors HAL module implementation, compiled as hw/iio-sensors-hal.so
+soong_namespace {
+}
 
 src_files = [
     "entry.c",
